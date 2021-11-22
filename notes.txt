@@ -1,0 +1,7 @@
+# https://phase2.github.io/devtools/common-tasks/ssh-into-a-container/
+
+# access container cli
+# docker exec -it {container id or name} /bin/bash
+
+$ run a command in a container
+# docker exec -it <container name> <command>
