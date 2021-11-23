@@ -1,14 +1,14 @@
 version: '2.0'
 
-# notes
-# clean up volumes if parameters and cofigs not taking effect
-# on first execution the files with extensions .sh, .sql and .sql.gz located at /docker-entrypoint-initdb.d will executed (in container)
+# major credit to this thread
+# https://github.com/bitnami/bitnami-docker-mariadb-galera/issues/44
 
 services:
 
   # master
   mariadb-galera-0:
     container_name: galera_master
+    restart: always
     build:
       context: ./mariadb_galera_0
       dockerfile: Dockerfile
@@ -35,6 +35,7 @@ services:
   # node 1
   mariadb-galera-1:
     container_name: galera_node_1
+    restart: always
     image: docker.io/bitnami/mariadb-galera:10.6
     ports:
       - '3307:3306'
@@ -68,6 +69,7 @@ services:
   # node 2
   mariadb-galera-2:
     container_name: galera_node_2
+    restart: always
     image: docker.io/bitnami/mariadb-galera:10.6
     ports:
       - '3308:3306'
