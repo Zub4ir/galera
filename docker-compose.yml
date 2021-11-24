@@ -8,7 +8,7 @@ services:
   # master
   mariadb-galera-0:
     container_name: galera_master
-    restart: always
+    # restart: always
     build:
       context: ./mariadb_galera_0
       dockerfile: Dockerfile
@@ -35,7 +35,7 @@ services:
   # node 1
   mariadb-galera-1:
     container_name: galera_node_1
-    restart: always
+    # restart: always
     image: docker.io/bitnami/mariadb-galera:10.6
     ports:
       - '3307:3306'
@@ -69,7 +69,7 @@ services:
   # node 2
   mariadb-galera-2:
     container_name: galera_node_2
-    restart: always
+    # restart: always
     image: docker.io/bitnami/mariadb-galera:10.6
     ports:
       - '3308:3306'
